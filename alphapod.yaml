@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphapod
+  labels:
+    app: alpha
+  namespace: default
+spec:
+  containers:
+  - name: alphapod
+    image: nginx:1.7.9

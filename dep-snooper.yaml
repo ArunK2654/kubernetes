@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snooper
+  labels:
+    fruit: starfruit
+  namespace: starfruit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      fruit: starfruit
+  template:
+    metadata:
+      labels:
+        fruit: starfruit
+    spec:
+      containers:
+      - name: snooper-con
+        image: nginx
+        volumeMounts:
+        - mountPath: /tmp/snooper.log
+          name: logsfile
+      - name: kennylogger-con
+        image: busybox
+        volumeMounts:
+        - mountPath: /tmp/snooper.log
+          name: logsfile
+      volumes:
+      - name: logsfile
+        hostPath:
+          path: /tmp/snooper.log
+          type: FileOrCreate
+    

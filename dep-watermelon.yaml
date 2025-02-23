@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: watermelon-slice
+  namespace: coconut
+  labels:
+    fruit: coconut
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      fruit: coconut
+  template:
+    metadata:
+      name: watermelon
+      labels:
+        fruit: coconut
+    spec:
+      containers:
+      - name: watemelon-con
+        image: nginx

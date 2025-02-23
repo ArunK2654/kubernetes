@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: banana-boat
+  labels:
+    fruit: banana
+  namespace: banana
+spec:
+  containers:
+  - name: banana-boat-cont
+    image: nginx
