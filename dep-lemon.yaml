@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    fruit: lemon
+  name: lemon
+  namespace: coconut
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      fruit: lemon
+  template:
+    metadata:
+      labels:
+        fruit: lemon
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
